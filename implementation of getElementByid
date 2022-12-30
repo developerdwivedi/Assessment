@@ -1,0 +1,30 @@
+
+//Here is an implementation of getElementById that does not use querySelector or any other shortcut methods:
+
+function getElementById(id) {
+  // Get the document object
+  var doc = document;
+
+  // Get all elements in the document
+  var elements = doc.getElementsByTagName("*");
+
+  // Iterate through the elements
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+
+    // Check if the element has the specified id
+    if (element.id === id) {
+      // Return the element if it has the specified id
+      return element;
+    }
+  }
+
+  // Return null if no element with the specified id was found
+  return null;
+}
+
+
+This function works by first getting all elements in the document using getElementsByTagName("*"),
+which returns a collection of all elements in the document. It then iterates through the collection
+and checks if each element has the specified id. If an element with the specified id is found, it is returned.
+If no element with the specified id is found, null is returned.
