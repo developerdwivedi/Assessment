@@ -1,0 +1,177 @@
+// For loop example
+
+
+function printNumbers(n) {
+  for (var i = 1; i <= n; i++) {
+    console.log(i);
+  }
+}
+
+printNumbers(5); // prints 1, 2, 3, 4, 5
+
+
+
+
+// While loop example
+
+function printNumbers(n) {
+  var i = 1;
+  while (i <= n) {
+    console.log(i);
+    i++;
+  }
+}
+
+printNumbers(5); // prints 1, 2, 3, 4, 5
+
+
+
+
+
+// Continue statement example
+
+function printOddNumbers(n) {
+  for (var i = 1; i <= n; i++) {
+    if (i % 2 == 0) {
+      continue;
+    }
+    console.log(i);
+  }
+}
+
+printOddNumbers(10); // prints 1, 3, 5, 7, 9
+
+
+
+
+// If statement example
+
+function checkPositive(x) {
+  if (x > 0) {
+    console.log("x is positive");
+  }
+}
+
+checkPositive(5); // prints "x is positive"
+checkPositive(-3); // does nothing
+
+
+
+
+
+// Else statement example
+
+function checkPositive(x) {
+  if (x > 0) {
+    console.log("x is positive");
+  } else {
+    console.log("x is not positive");
+  }
+}
+
+checkPositive(5); // prints "x is positive"
+checkPositive(-3); // prints "x is not positive"
+
+
+
+
+
+// Switch statement example
+
+function checkNumber(x) {
+  switch (x) {
+    case 1:
+      console.log("x is 1");
+      break;
+    case 2:
+      console.log("x is 2");
+      break;
+    default:
+      console.log("x is neither 1 nor 2");
+  }
+}
+
+checkNumber(1); // prints "x is 1"
+checkNumber(2); // prints "x is 2"
+checkNumber(3); // prints "x is neither 1 nor 2"
+
+
+
+// Recursion example
+
+function factorial(n) {
+  if (n == 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // prints 120
+
+
+
+
+
+// Binary Search Tree example
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+
+  insert(value) {
+    var newNode = new Node(value);
+    if (this.root === null) {
+      this.root = newNode;
+      return this;
+    }
+    var current = this.root;
+    while (true) {
+      if (value === current.value) return undefined;
+      if (value < current.value) {
+        if (current.left === null) {
+          current.left = newNode;
+          return this;
+        }
+        current = current.left;
+      } else {
+        if (current.right === null) {
+          current.right = newNode;
+          return this;
+        }
+        current = current.right;
+      }
+    }
+  }
+}
+
+var tree = new BinarySearchTree();
+tree.insert(10);
+tree.insert(5);
+tree.insert(13);
+tree.insert(11);
+
+
+
+
+
+// Closure
+
+function outerFunction(arg) {
+  var variableInOuterFunction = arg;
+  function innerFunction() {
+    console.log(variableInOuterFunction);
+  }
+  return innerFunction;
+}
+
+var innerFunction = outerFunction("hello closure");
+innerFunction(); // logs "hello closure"
