@@ -1,0 +1,37 @@
+function isPrime(x) {
+  // Check if the number is less than 2
+  if (x < 2) {
+    return false;
+  }
+
+  // Check if the number is evenly divisible by any number from 2 to the square root of the number
+  for (var i = 2; i <= Math.sqrt(x); i++) {
+    if (x % i === 0) {
+      return false;
+    }
+  }
+
+  // The number is prime if it is not evenly divisible by any number from 2 to the square root of the number
+  return true;
+}
+
+function findNextPrime(x) {
+  // Increment the number by 1 until we find a prime number
+  while (true) {
+    x++;
+
+    // Check if the number is prime
+    if (isPrime(x)) {
+      return x;
+    }
+  }
+}
+
+// Find the next prime number after X
+var x = 10;
+var nextPrime = findNextPrime(x);
+
+// Calculate the difference between the next prime and X
+var difference = nextPrime - x;
+
+console.log(`The next prime after ${x} is ${nextPrime}. The difference is ${difference}.`);
